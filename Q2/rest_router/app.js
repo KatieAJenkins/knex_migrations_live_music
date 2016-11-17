@@ -41,7 +41,7 @@ app.post('/guests', function(req, res) {
 });
 
 app.put('/guests/:index', function(req, res) {
-  var index = Number.parseInt(req.params.index);
+  var index = Number.parseInt(req.params.index); //storing variable so we can check index is valid below
 
   if (Number.isNaN(index) || index < 0 || index >= guests.length) {
     return res.sendStatus(404);
@@ -53,19 +53,19 @@ app.put('/guests/:index', function(req, res) {
     return res.sendStatus(400);
   }
 
-  guests[index] = guest;
+  guests[index] = guest; //if it does exist, replacing guest at this location with new guest
 
   res.send(guest);
 });
 
-app.delete('/guests/:index', function(req, res) {
+app.delete('/guests/:index', function(req, res) {//deleting element at the position we passed in our parameter.
   var index = Number.parseInt(req.params.index);
 
   if (Number.isNaN(index) || index < 0 || index >= guests.length) {
     return res.sendStatus(404);
   }
 
-  var guest = guests.splice(index, 1)[0];
+  var guest = guests.splice(index, 1)[0]; //splices the array with an object, then takes [0] index of the object
 
   res.send(guest);
 });
