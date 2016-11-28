@@ -81,10 +81,6 @@ SELECT * FROM students INNER JOIN homeworks ON homeworks.student_id = students.i
 
 knex.from('students').innerJoin('homeworks', 'homeworks.student_id = student.id');
 
-
-
-
-
 SELECT DISTINCT students.name, homework.title, grades.score
 FROM students
 INNER JOIN homeworks ON homeworks.student_id = students.id
